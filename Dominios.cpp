@@ -144,3 +144,23 @@ void Senha::setSenha(std::string senha){
         this->senha = senha;
     }
 }
+
+bool Telefone::verificarTelefone(std::string telefone){
+    if(telefone.length() < 8 && telefone.length() > 16){
+        return false;
+    }
+    
+    for(char c : telefone){
+        if(!isalnum(c)){
+            return false;
+        }
+        if(c < 0 || c > 9){
+            return false;
+        }
+    }
+    if(telefone.find(+) != 0){
+        return false;
+    }
+    
+    return true;
+}
